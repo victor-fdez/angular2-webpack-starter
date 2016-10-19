@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
+import { MdlModule } from 'angular2-mdl';
+
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -44,6 +46,7 @@ type StoreType = {
     XLarge
   ],
   imports: [ // import Angular's modules
+    MdlModule,
     BrowserModule,
     FormsModule,
     HttpModule,

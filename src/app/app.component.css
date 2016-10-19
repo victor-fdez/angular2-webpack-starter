@@ -6,3 +6,7 @@ html, body{
 span.active {
   background-color: gray;
 }
+
+.contentfilterinator-container {
+ margin: 1rem;
+}

@@ -4,6 +4,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
 import { AppState } from './app.service';
+import { Title } from './home/title';
 
 /*
  * App Component
@@ -15,47 +16,69 @@ import { AppState } from './app.service';
   styleUrls: [
     './app.component.css'
   ],
+  providers: [
+    Title
+  ],
   template: `
-    <nav>
-      <span>
-        <a [routerLink]=" ['./'] ">
+  <mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>
+    <mdl-layout-header>
+      <mdl-layout-header-row>
+        <mdl-layout-title>{{ title.value }}</mdl-layout-title>
+        <mdl-layout-spacer></mdl-layout-spacer>
+        <!-- Navigation. We hide it in small screens. -->
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a class="mdl-navigation__link" [routerLink]=" ['./'] ">
+            Index
+          </a>
+          <a class="mdl-navigation__link" [routerLink]=" ['./home'] ">
+            Home
+          </a>
+          <a class="mdl-navigation__link" [routerLink]=" ['./detail'] ">
+            Detail
+          </a>
+          <a class="mdl-navigation__link" [routerLink]=" ['./about'] ">
+            About
+          </a>
+        </nav>
+      </mdl-layout-header-row>
+    </mdl-layout-header>
+    <mdl-layout-drawer>
+      <mdl-layout-title>{{ title.value }}</mdl-layout-title>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" [routerLink]=" ['./'] ">
           Index
         </a>
-      </span>
-      |
-      <span>
-        <a [routerLink]=" ['./home'] ">
+        <a class="mdl-navigation__link" [routerLink]=" ['./home'] ">
           Home
         </a>
-      </span>
-      |
-      <span>
-        <a [routerLink]=" ['./detail'] ">
+        <a class="mdl-navigation__link" [routerLink]=" ['./detail'] ">
           Detail
         </a>
-      </span>
-      |
-      <span>
-        <a [routerLink]=" ['./about'] ">
+        <a class="mdl-navigation__link" [routerLink]=" ['./about'] ">
           About
         </a>
-      </span>
-    </nav>
+      </nav>
+    </mdl-layout-drawer>
+    <mdl-layout-content class='contentfilterinator-container'>
+      <!-- Your content goes here -->
+      <main>
+        <router-outlet></router-outlet>
+      </main>
 
-    <main>
-      <router-outlet></router-outlet>
-    </main>
+      <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
 
-    <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
+      <footer>
+        <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
+        <div>
+          <a [href]="url">
+            <img [src]="angularclassLogo" width="25%">
+            </a>
+          </div>
+        </footer>
 
-    <footer>
-      <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
-      <div>
-        <a [href]="url">
-          <img [src]="angularclassLogo" width="25%">
-        </a>
-      </div>
-    </footer>
+      </mdl-layout-content>
+    </mdl-layout>
+
   `
 })
 export class AppComponent {
@@ -64,7 +87,8 @@ export class AppComponent {
   url = 'https://twitter.com/AngularClass';
 
   constructor(
-    public appState: AppState) {
+    public appState: AppState,
+    public title: Title) {
 
   }
 
