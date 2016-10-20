@@ -4,7 +4,7 @@ import { Http } from '@angular/http';
 @Injectable()
 export class Title {
   //value = 'Angular 2';
-  value = 'Contentfilterinator';
+  value = 'Berrysafe';
   constructor(public http: Http) {
 
   }

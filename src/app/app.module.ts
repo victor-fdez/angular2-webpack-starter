@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
 import { MdlModule } from 'angular2-mdl';
+import './rxjs-extensions';
+
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -20,6 +22,8 @@ import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { XLarge } from './home/x-large';
+
+import { CategoriesComponent } from './categories';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -43,7 +47,8 @@ type StoreType = {
     AboutComponent,
     HomeComponent,
     NoContentComponent,
-    XLarge
+    XLarge,
+    CategoriesComponent
   ],
   imports: [ // import Angular's modules
     MdlModule,
