@@ -1,7 +1,10 @@
 <mdl-list>
-  <mdl-list-item *ngFor="let category of categories" mdl-ripple>
+  <mdl-list-item *ngFor="let category of categories">
     <mdl-list-item-primary-content>
-      {{ category.name }}
+      {{ category.name | uppercase }}
     </mdl-list-item-primary-content>
+    <mdl-list-item-secondary-action>
+      <category-toggle [category]="category"></category-toggle>
+    </mdl-list-item-secondary-action>
   </mdl-list-item>
 </mdl-list>

@@ -24,6 +24,7 @@ import { NoContentComponent } from './no-content';
 import { XLarge } from './home/x-large';
 
 import { CategoriesComponent } from './categories';
+import { CategoryToggleComponent } from './categoryToggle';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -48,7 +49,8 @@ type StoreType = {
     HomeComponent,
     NoContentComponent,
     XLarge,
-    CategoriesComponent
+    CategoriesComponent,
+    CategoryToggleComponent
   ],
   imports: [ // import Angular's modules
     MdlModule,

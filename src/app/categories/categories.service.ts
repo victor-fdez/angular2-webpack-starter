@@ -21,6 +21,16 @@ export class CategoriesService {
       .catch(this.handleError);
   }
 
+  toggleCategory(category: Category): Promise<Category> {
+    console.log(category);
+    let op = (category.set ? 'unset' : 'set');
+    const url = `${this.baseUrl}${category.name}/${op}`;
+    return this.http.put(url, {})
+      .toPromise()
+      .then(response => response.json() as Category)
+      .catch(this.handleError);
+   }
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);

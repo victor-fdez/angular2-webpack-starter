@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+import { CategoryToggleComponent } from '../categoryToggle';
 import { Category } from '../category';
 import { CategoriesService } from './categories.service';
 

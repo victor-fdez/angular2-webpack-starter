@@ -28,14 +28,17 @@ import { Title } from './home/title';
         <!-- Navigation. We hide it in small screens. -->
         <nav class="mdl-navigation mdl-layout--large-screen-only">
           <a class="mdl-navigation__link" [routerLink]=" ['./'] ">
-            Index
+            Filters
           </a>
-          <a class="mdl-navigation__link" [routerLink]=" ['./home'] ">
+          <a class="mdl-navigation__link" >
+            Stats
+          </a>
+          <!-- <a class="mdl-navigation__link" [routerLink]=" ['./home'] ">
             Home
           </a>
           <a class="mdl-navigation__link" [routerLink]=" ['./detail'] ">
             Detail
-          </a>
+          </a> -->
           <a class="mdl-navigation__link" [routerLink]=" ['./about'] ">
             About
           </a>
@@ -46,14 +49,17 @@ import { Title } from './home/title';
       <mdl-layout-title>{{ title.value }}</mdl-layout-title>
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" [routerLink]=" ['./'] ">
-          Index
+          Filters
         </a>
-        <a class="mdl-navigation__link" [routerLink]=" ['./home'] ">
+        <a class="mdl-navigation__link" >
+          Stats
+        </a>
+        <!-- <a class="mdl-navigation__link" [routerLink]=" ['./home'] ">
           Home
         </a>
         <a class="mdl-navigation__link" [routerLink]=" ['./detail'] ">
           Detail
-        </a>
+        </a> -->
         <a class="mdl-navigation__link" [routerLink]=" ['./about'] ">
           About
         </a>
