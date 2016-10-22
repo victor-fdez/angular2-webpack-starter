@@ -1,7 +1,7 @@
 <mdl-list>
   <mdl-list-item *ngFor="let category of categories">
     <mdl-list-item-primary-content>
-      {{ category.name | uppercase }}
+      {{ category.name | removedashes | capitalize }}
     </mdl-list-item-primary-content>
     <mdl-list-item-secondary-action>
       <category-toggle [category]="category"></category-toggle>

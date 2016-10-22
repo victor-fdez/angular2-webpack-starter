@@ -6,6 +6,9 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { AppState } from './app.service';
 import { Title } from './home/title';
 
+import { MdlDialogOutletService } from 'angular2-mdl';
+import { ViewContainerRef } from '@angular/core';
+
 /*
  * App Component
  * Top Level Component
@@ -28,10 +31,10 @@ import { Title } from './home/title';
         <!-- Navigation. We hide it in small screens. -->
         <nav class="mdl-navigation mdl-layout--large-screen-only">
           <a class="mdl-navigation__link" [routerLink]=" ['./'] ">
-            Filters
+            FILTERS
           </a>
           <a class="mdl-navigation__link" >
-            Stats
+            STATS
           </a>
           <!-- <a class="mdl-navigation__link" [routerLink]=" ['./home'] ">
             Home
@@ -40,7 +43,7 @@ import { Title } from './home/title';
             Detail
           </a> -->
           <a class="mdl-navigation__link" [routerLink]=" ['./about'] ">
-            About
+            ABOUT
           </a>
         </nav>
       </mdl-layout-header-row>
@@ -49,10 +52,10 @@ import { Title } from './home/title';
       <mdl-layout-title>{{ title.value }}</mdl-layout-title>
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" [routerLink]=" ['./'] ">
-          Filters
+          FILTERS
         </a>
         <a class="mdl-navigation__link" >
-          Stats
+          STATS
         </a>
         <!-- <a class="mdl-navigation__link" [routerLink]=" ['./home'] ">
           Home
@@ -61,26 +64,36 @@ import { Title } from './home/title';
           Detail
         </a> -->
         <a class="mdl-navigation__link" [routerLink]=" ['./about'] ">
-          About
+          ABOUT
         </a>
       </nav>
     </mdl-layout-drawer>
-    <mdl-layout-content class='contentfilterinator-container'>
+    <mdl-layout-content>
       <!-- Your content goes here -->
       <main>
-        <router-outlet></router-outlet>
+        <router-outlet class='contentfilterinator-container'></router-outlet>
       </main>
 
-      <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
 
-      <footer>
+      <footer class="mdl-mini-footer">
+        <div class="mdl-mini-footer__left-section">
+          <div class="mdl-logo">Berrysafe</div>
+          <ul class="mdl-mini-footer__link-list">
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Privacy & Terms</a></li>
+            <li>Baddevs.io &copy; {{ copyYear }}</li>
+          </ul>
+        </div>
+      </footer>
+      <!-- <footer>
+      <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
         <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
         <div>
           <a [href]="url">
             <img [src]="angularclassLogo" width="25%">
             </a>
           </div>
-        </footer>
+        </footer> -->
 
       </mdl-layout-content>
     </mdl-layout>
@@ -91,11 +104,17 @@ export class AppComponent {
   angularclassLogo = 'assets/img/angularclass-avatar.png';
   name = 'Angular 2 Webpack Starter';
   url = 'https://twitter.com/AngularClass';
+  copyYear: number;
 
   constructor(
     public appState: AppState,
-    public title: Title) {
+    public title: Title,
+    private dilalogOuletService: MdlDialogOutletService,
+    private viewConatinerRef: ViewContainerRef
+    ) {
 
+    this.copyYear = new Date().getFullYear();
+    this.dilalogOuletService.setDefaultViewContainerRef(this.viewConatinerRef);
   }
 
   ngOnInit() {

@@ -26,6 +26,9 @@ import { XLarge } from './home/x-large';
 import { CategoriesComponent } from './categories';
 import { CategoryToggleComponent } from './categoryToggle';
 
+import { CapitalizePipe } from './custompipes/capitalize.pipe';
+import { RemoveDashesPipe } from './custompipes/removedashes.pipe';
+
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -50,7 +53,9 @@ type StoreType = {
     NoContentComponent,
     XLarge,
     CategoriesComponent,
-    CategoryToggleComponent
+    CategoryToggleComponent,
+    CapitalizePipe,
+    RemoveDashesPipe
   ],
   imports: [ // import Angular's modules
     MdlModule,
