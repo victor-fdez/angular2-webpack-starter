@@ -15,12 +15,14 @@ import { CategoriesService } from './categories.service';
 
 export class CategoriesComponent {
   categories: Category[];
+  searchTerm: string;
 
   constructor(private categoriesS: CategoriesService) {
   }
 
   ngOnInit(): void {
     this.getCategories();
+    this.searchTerm = '';
   }
 
   getCategories(): void {

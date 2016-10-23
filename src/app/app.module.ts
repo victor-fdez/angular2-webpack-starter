@@ -28,6 +28,7 @@ import { CategoryToggleComponent } from './categoryToggle';
 
 import { CapitalizePipe } from './custompipes/capitalize.pipe';
 import { RemoveDashesPipe } from './custompipes/removedashes.pipe';
+import { FilterCategoriesPipe } from './custompipes/filterCategories.pipe';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -55,7 +56,8 @@ type StoreType = {
     CategoriesComponent,
     CategoryToggleComponent,
     CapitalizePipe,
-    RemoveDashesPipe
+    RemoveDashesPipe,
+    FilterCategoriesPipe
   ],
   imports: [ // import Angular's modules
     MdlModule,

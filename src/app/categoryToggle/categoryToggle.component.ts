@@ -18,7 +18,7 @@ import { MdlSnackbarService } from 'angular2-mdl';
      mdl-colored="{{ category.set ? 'accent' : '' }}"
      mdl-ripple
      (click)="toggleCategory()">
-    {{ category.set ? "Unset" : "Set" }}
+    {{ category.set ? "Unfilter" : "Filter" }}
   </button>
   `
 })
